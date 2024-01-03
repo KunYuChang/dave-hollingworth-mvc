@@ -1,6 +1,7 @@
 <?php
 
-exit('安安');
+$path = $_SERVER['REQUEST_URI'];
+exit($path);
 
 $action = $_GET['action'];
 $controller = $_GET['controller'];
