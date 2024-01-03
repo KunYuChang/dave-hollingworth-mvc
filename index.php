@@ -9,6 +9,10 @@ $router->add("/products", ["controller" => "products", "action" => "index"]);
 $router->add("/", ["controller" => "home", "action" => "index"]);
 $params = $router->match($path);
 
+if ($params === false) {
+	exit("No route matched");
+}
+
 $action = $params["action"];
 $controller = $params["controller"];
 
