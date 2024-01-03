@@ -1,5 +1,7 @@
 <?php
 
+exit('安安');
+
 $action = $_GET['action'];
 $controller = $_GET['controller'];
 
