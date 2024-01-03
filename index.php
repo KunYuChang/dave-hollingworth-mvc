@@ -9,12 +9,8 @@ $router->add("/products", ["controller" => "products", "action" => "index"]);
 $router->add("/", ["controller" => "home", "action" => "index"]);
 $params = $router->match($path);
 
-var_dump($params);
-exit;
-
-$segments = explode('/', $path);
-$action = $segments[2];
-$controller = $segments[1];
+$action = $params["action"];
+$controller = $params["controller"];
 
 require "src/controllers/$controller.php";
 $controller_object = new $controller;
