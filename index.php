@@ -1,5 +1,5 @@
 <?php
 
-require "controller.php";
-$controller = new Controller;
+require "src/controllers/products.php";
+$controller = new Products;
 $controller->index();
