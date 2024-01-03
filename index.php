@@ -2,7 +2,10 @@
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-require "src/router.php";
+spl_autoload_register(function (string $class_name) {
+	require "src/$class_name.php";
+});
+
 $router = new Router;
 $router->add("/home/index", ["controller" => "home", "action" => "index"]);
 $router->add("/products", ["controller" => "products", "action" => "index"]);
