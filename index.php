@@ -3,7 +3,7 @@
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 spl_autoload_register(function (string $class_name) {
-	require "src/" . str_replace("\\", "/", $class_name) . "php";
+	require "src/" . str_replace("\\", "/", $class_name) . ".php";
 });
 
 $router = new Framework\Router;
@@ -17,8 +17,7 @@ if ($params === false) {
 }
 
 $action = $params["action"];
-$controller = $params["controller"];
+$controller = "App\Controllers\\" . ucwords($params["controller"]);
 
-require "src/controllers/$controller.php";
 $controller_object = new $controller;
 $controller_object->$action();
