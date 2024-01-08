@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Framework;
 
 class Viewer
@@ -8,9 +10,10 @@ class Viewer
 	{
 		extract($data, EXTR_SKIP);
 
-		// 使用輸出緩衝載入模板的內容
 		ob_start();
+
 		require "views/$template";
+
 		return ob_get_clean();
 	}
 }
